@@ -6,12 +6,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { RouteValidator } from "./route-validator";
 
 // Pages
+const Home = lazy(() => import("../pages/home-page"));
 
 export const ApplicationRoutes: FunctionComponent = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<div>Home</div>} />
+                <Route path="/" element={<RouteValidator component={Home} />} />
 
                 <Route path="/teste" element={<div>Teste</div>} />
 
