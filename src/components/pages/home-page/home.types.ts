@@ -10,9 +10,7 @@ export enum ObesityLevel {
 }
 
 export type HomeElements = {
-    heightInputElementComposition: ReactNode;
-    weigthInputElementComposition: ReactNode;
-    buttonElementComposition: ReactNode;
+    calculatorSectionCompositions: ReactNode;
 };
 
 export type HomeProps = HomeElements;

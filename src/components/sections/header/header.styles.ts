@@ -68,6 +68,6 @@ export const NavLinksCompositionsWrapper = styled.div`
 export const Brand = styled.h3`
     color: #fff;
     font-size: 18px;
-    font-family: "Cinzel", serif;
+    font-family: "Nunito Sans", serif;
     cursor: pointer;
 `;

@@ -10,18 +10,14 @@ import { HomeProps } from "./home.types";
 // Helpers
 import { imcCalculator } from "./home.helpers";
 
-export const Home: FunctionComponent<HomeProps> = ({ heightInputElementComposition, weigthInputElementComposition, buttonElementComposition }) => {
+export const Home: FunctionComponent<HomeProps> = ({ calculatorSectionCompositions }) => {
     const imcValue = imcCalculator({ heigth: "1,80", weigth: "110,10" });
 
     return (
         <DefaultLayout
             contentPage={
                 <Fragment>
-                    {heightInputElementComposition}
-
-                    {weigthInputElementComposition}
-
-                    {buttonElementComposition}
+                    {calculatorSectionCompositions}
 
                     <div>O seu IMC é: {imcValue.imc}</div>
 
