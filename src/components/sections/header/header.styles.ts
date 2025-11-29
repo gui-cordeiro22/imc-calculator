@@ -1,5 +1,5 @@
 // Dependencies
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
     display: flex;
@@ -13,14 +13,29 @@ export const Container = styled.div`
     background-color: #000;
 `;
 
-export const ContentWrapper = styled.div`
+type ContentWrapperStyleProps = {
+    hasNavLinks: boolean;
+};
+
+export const ContentWrapper = styled.div<ContentWrapperStyleProps>`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     padding: 24px;
     width: 100%;
     margin: 0 auto;
+
+    ${({ hasNavLinks }) =>
+        !!hasNavLinks &&
+        css`
+            justify-content: space-between;
+        `}
+
+    ${({ hasNavLinks }) =>
+        !hasNavLinks &&
+        css`
+            justify-content: center;
+        `}
 
     @media (min-width: 768px) {
         max-width: 677px;

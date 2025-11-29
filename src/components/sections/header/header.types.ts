@@ -6,7 +6,7 @@ export type HeaderData = {
 };
 
 export type HeaderElement = {
-    navLinksCompositions: ReactNode;
+    navLinksCompositions?: ReactNode;
 };
 
 export type HeaderAction = {

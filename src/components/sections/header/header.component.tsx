@@ -10,7 +10,7 @@ import { HeaderProps } from "./header.types";
 export const Header: FunctionComponent<HeaderProps> = ({ brand, handleClick, navLinksCompositions }) => {
     return (
         <Container>
-            <ContentWrapper>
+            <ContentWrapper hasNavLinks={!!navLinksCompositions}>
                 <Brand onClick={handleClick}>{brand}</Brand>
 
                 <NavLinksCompositionsWrapper>{navLinksCompositions}</NavLinksCompositionsWrapper>
