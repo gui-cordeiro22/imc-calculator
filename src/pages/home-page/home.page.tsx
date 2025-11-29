@@ -14,8 +14,8 @@ export const HomePage: FunctionComponent = () => {
         <Home
             calculatorSectionCompositions={
                 <CalculatorSection
-                    heigthInputElement={<Input placeholder="Insira a sua altura em metros:" iconElement={<Ruler />} />}
-                    weigthInputElement={<Input placeholder="Insira o seu peso em quilos:" iconElement={<Scale />} />}
+                    heigthInputElement={<Input placeholder="Altura em metros" iconElement={<Ruler />} />}
+                    weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale />} />}
                     actionButtonElement={<div>Button Element</div>}
                 />
             }

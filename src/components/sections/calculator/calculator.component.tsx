@@ -2,7 +2,7 @@
 import { FunctionComponent } from "react";
 
 // Styles
-import { Container } from "./calculator.styles";
+import { Container, ContentWrapper, InputsWrapper } from "./calculator.styles";
 
 // Types
 import { CalculatorProps } from "./calculator.types";
@@ -10,11 +10,15 @@ import { CalculatorProps } from "./calculator.types";
 export const CalculatorSection: FunctionComponent<CalculatorProps> = ({ heigthInputElement, weigthInputElement, actionButtonElement }) => {
     return (
         <Container>
-            {heigthInputElement}
+            <ContentWrapper>
+                <InputsWrapper>
+                    {heigthInputElement}
 
-            {weigthInputElement}
+                    {weigthInputElement}
+                </InputsWrapper>
 
-            {actionButtonElement}
+                {actionButtonElement}
+            </ContentWrapper>
         </Container>
     );
 };
