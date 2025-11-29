@@ -8,6 +8,7 @@ import { Input } from "../../components/elements/input";
 
 // Assets
 import { Ruler, Scale } from "lucide-react";
+import { Button } from "../../components/elements/button";
 
 export const HomePage: FunctionComponent = () => {
     return (
@@ -16,7 +17,7 @@ export const HomePage: FunctionComponent = () => {
                 <CalculatorSection
                     heigthInputElement={<Input placeholder="Altura em metros" iconElement={<Ruler />} />}
                     weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale />} />}
-                    actionButtonElement={<div>Button Element</div>}
+                    actionButtonElement={<Button label="Calcular" variant="cta" />}
                 />
             }
         />
