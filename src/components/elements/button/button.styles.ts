@@ -19,11 +19,14 @@ type ContainerStyleProps = {
 export const Container = styled.button<ContainerStyleProps>`
     background-color: inherit;
     padding: 8px;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 8px;
 `;
 
 export const Label = styled.p`
     font-size: 14px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     font-weight: bold;
 
     @media (min-width: 768px) {

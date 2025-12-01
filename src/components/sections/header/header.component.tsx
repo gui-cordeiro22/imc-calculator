@@ -1,6 +1,9 @@
 // Dependencies
 import { FunctionComponent } from "react";
 
+//Components
+import { ConditionallyRender } from "../../utilities/conditionally-render";
+
 // Styles
 import { Container, ContentWrapper, Brand, NavLinksCompositionsWrapper } from "./header.styles";
 
@@ -13,7 +16,10 @@ export const Header: FunctionComponent<HeaderProps> = ({ brand, handleClick, nav
             <ContentWrapper hasNavLinks={!!navLinksCompositions}>
                 <Brand onClick={handleClick}>{brand}</Brand>
 
-                <NavLinksCompositionsWrapper>{navLinksCompositions}</NavLinksCompositionsWrapper>
+                <ConditionallyRender
+                    shouldRender={!!navLinksCompositions}
+                    content={<NavLinksCompositionsWrapper>{navLinksCompositions}</NavLinksCompositionsWrapper>}
+                />
             </ContentWrapper>
         </Container>
     );

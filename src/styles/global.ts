@@ -4,7 +4,6 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   html, body, #root {
     background-color: #eceeee;
-    min-width: 360px;
     scrollbar-width: thin;
     scrollbar-color: #ebebeb transparent;
   }

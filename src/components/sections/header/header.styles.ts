@@ -6,10 +6,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: sticky;
     width: 100%;
-    top: 0;
-    z-index: 1;
     background-color: #000;
 `;
 

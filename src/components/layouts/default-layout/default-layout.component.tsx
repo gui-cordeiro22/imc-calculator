@@ -16,8 +16,6 @@ export const DefaultLayout: FunctionComponent<DefaultLayoutProps> = ({ contentPa
             <Header brand="Calculadora de Índice de Massa Corporal" handleClick={handleScrollToTop} />
 
             {contentPage}
-
-            <div>Footer</div>
         </Fragment>
     );
 };

@@ -20,7 +20,6 @@ export const ContentWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     gap: 20px;
 
     ${pageGutter}
@@ -32,6 +31,7 @@ export const InputsWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: ${theme.spaces.large};
+    width: 100%;
 
     @media (min-width: 768px) {
         flex-direction: row;
