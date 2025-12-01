@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 // Types
 import type { ButtonVariants } from "./button.types";
 
-// Theme
-//import { theme } from "@/config/theme";
+// Utils
+import { theme } from "../../../config/theme";
 
 type ContainerStyleProps = {
     variant: ButtonVariants;
@@ -14,14 +14,21 @@ type ContainerStyleProps = {
     hasHoverEffect?: boolean;
 };
 
-//TODO: Refact all styles to be more general and simple
-
 export const Container = styled.button<ContainerStyleProps>`
     background-color: inherit;
-    padding: 8px;
+    padding: ${theme.spaces.xs};
     width: 100%;
-    border: 1px solid #000;
+    border: 1px solid ${theme.colors.aqua[100]};
     border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: ${theme.colors.aqua[100]};
+
+        p {
+            color: ${theme.colors.white};
+        }
+    }
 `;
 
 export const Label = styled.p`

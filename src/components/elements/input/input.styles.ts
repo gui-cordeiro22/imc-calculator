@@ -1,6 +1,9 @@
 // Dependencies
 import styled from "styled-components";
 
+// Utils
+import { theme } from "../../../config/theme";
+
 export const InputContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -19,8 +22,8 @@ export const InputWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 20px;
-    padding: 20px;
+    gap: ${theme.spaces.medium};
+    padding: ${theme.spaces.medium};
 `;
 
 export const InputElement = styled.input`
@@ -41,7 +44,7 @@ export const ButtonsWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: ${theme.spaces.medium};
 
     svg {
         cursor: pointer;

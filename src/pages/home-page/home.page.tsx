@@ -5,18 +5,21 @@ import { FunctionComponent } from "react";
 import { Home } from "../../components/pages/home-page";
 import { CalculatorSection } from "../../components/sections/calculator";
 import { Input } from "../../components/elements/input";
+import { Button } from "../../components/elements/button";
 
 // Assets
 import { Ruler, Scale } from "lucide-react";
-import { Button } from "../../components/elements/button";
+
+// Utils
+import { theme } from "../../config/theme";
 
 export const HomePage: FunctionComponent = () => {
     return (
         <Home
             calculatorSectionCompositions={
                 <CalculatorSection
-                    heigthInputElement={<Input placeholder="Altura em metros" iconElement={<Ruler />} />}
-                    weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale />} />}
+                    heigthInputElement={<Input placeholder="Altura em metros" iconElement={<Ruler color={theme.colors.gray[500]} />} />}
+                    weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale color={theme.colors.gray[500]} />} />}
                     actionButtonElement={<Button label="Calcular" variant="cta" />}
                 />
             }

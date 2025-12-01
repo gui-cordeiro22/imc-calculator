@@ -8,4 +8,19 @@ export const theme = {
         xl: "32px",
         xxl: "48px",
     },
+    colors: {
+        green: {
+            100: "#4f700a",
+            200: "#355700",
+        },
+        aqua: {
+            100: "#16b098",
+            500: "#326e60",
+        },
+        gray: {
+            500: "#373c3e",
+        },
+        white: "#fff",
+        black: "#000",
+    },
 };

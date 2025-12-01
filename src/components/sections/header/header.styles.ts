@@ -1,13 +1,16 @@
 // Dependencies
 import styled, { css } from "styled-components";
 
+// Utils
+import { theme } from "../../../config/theme";
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: #000;
+    background-color: ${theme.colors.gray[500]};
 `;
 
 type ContentWrapperStyleProps = {
@@ -63,7 +66,7 @@ export const NavLinksCompositionsWrapper = styled.div`
 `;
 
 export const Brand = styled.h3`
-    color: #fff;
+    color: ${theme.colors.white};
     font-size: 18px;
     font-family: "Nunito Sans", serif;
     cursor: pointer;
