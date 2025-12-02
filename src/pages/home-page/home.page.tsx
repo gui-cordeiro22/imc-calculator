@@ -20,7 +20,7 @@ export const HomePage: FunctionComponent = () => {
                 <CalculatorSection
                     heigthInputElement={<Input placeholder="Altura em metros" iconElement={<Ruler color={theme.colors.gray[500]} />} />}
                     weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale color={theme.colors.gray[500]} />} />}
-                    actionButtonElement={<Button label="Calcular" variant="cta" />}
+                    actionButtonElement={<Button label="Calcular" variant="cta" isCommingSoon={false} />}
                 />
             }
         />

@@ -8,6 +8,11 @@ export const theme = {
         xl: "32px",
         xxl: "48px",
     },
+    buttonSizes: {
+        small: "200px",
+        medium: "400px",
+        large: "600px",
+    },
     colors: {
         green: {
             100: "#4f700a",
