@@ -6,21 +6,53 @@ import { Home } from "../../components/pages/home-page";
 import { CalculatorSection } from "../../components/sections/calculator";
 import { Input } from "../../components/elements/input";
 import { Button } from "../../components/elements/button";
+import { ResultsSection } from "../../components/sections/results";
 
 // Assets
-import { Ruler, Scale } from "lucide-react";
+import { Ruler, Scale, Calculator } from "lucide-react";
 
 // Utils
 import { theme } from "../../config/theme";
 
+// Helpers
+import { imcCalculator } from "./home.helpers";
+
+// Hooks
+import { useWindowDimensions } from "../../hooks/window-dimensions/window-dimensions";
+import { ConditionallyRender } from "../../components/utilities/conditionally-render";
+
 export const HomePage: FunctionComponent = () => {
+    const imcValue = imcCalculator({ heigth: "1,80", weigth: "100" });
+
+    const { width } = useWindowDimensions();
+
+    console.log(imcValue);
+
     return (
         <Home
             calculatorSectionCompositions={
                 <CalculatorSection
                     heigthInputElement={<Input placeholder="Altura em metros" iconElement={<Ruler color={theme.colors.gray[500]} />} />}
                     weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale color={theme.colors.gray[500]} />} />}
-                    actionButtonElement={<Button label="Calcular" variant="cta" isCommingSoon={false} />}
+                    actionButtonElement={
+                        <Button
+                            label="Calcular"
+                            variant="cta"
+                            isCommingSoon={false}
+                            size="large"
+                            isFullyAdaptative={width < 768}
+                            borderType="squared"
+                            rightIconElement={<Calculator />}
+                        />
+                    }
+                />
+            }
+            resultsSectionCompositions={
+                <ConditionallyRender
+                    shouldRender={!!imcValue?.imc}
+                    content={
+                        <ResultsSection title="Confira abaixo o seu resultado:" imcValue={imcValue?.imc} bodyFatLevel={imcValue?.obesityLevel} />
+                    }
                 />
             }
         />

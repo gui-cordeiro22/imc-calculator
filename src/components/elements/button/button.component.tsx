@@ -3,7 +3,6 @@ import { FunctionComponent } from "react";
 
 // Types
 import { ButtonProps } from "./button.types";
-import { Theme } from "../../../styles/theme";
 
 // Styles
 import { Container, ContentWrapper, Content, Loader } from "./button.styles";
@@ -32,12 +31,6 @@ export const Button: FunctionComponent<ButtonProps> = ({
     handleClick,
     ...buttonDefaultProps
 }) => {
-    const labelColor = ternary([
-        [!!isDisabled && variantType === "primary", "gray400"],
-        [!!isDisabled && ["secondary", "link"].includes(variantType), "gray300"],
-        [!isDisabled && variant === "cta" && ["secondary", "link"].includes(variantType), "primary300"],
-    ]) as keyof Theme["palette"]["colors"];
-
     return (
         <Container
             className="pdg-button"
@@ -72,7 +65,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
             <ConditionallyRender
                 shouldRender={isLoading}
                 content={
-                    <Loader color={labelColor}>
+                    <Loader color="#FFF">
                         <div>
                             <div />
                             <div />
