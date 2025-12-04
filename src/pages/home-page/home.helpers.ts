@@ -1,29 +1,30 @@
 // Types
-import { ImcCalculatorData, ObesityLevel } from "./home.types";
+import { ImcCalculatorData, BodyFatLevel } from "./home.types";
 
 // Utils
 import { ternary } from "../../utils/ternary";
 
-const formatObesityLevelMessage = (imc?: number) => {
-    const obesityLevelFormats: ObesityLevel[] = [
-        ObesityLevel.MAGREZA,
-        ObesityLevel.NORMAL,
-        ObesityLevel.SOBREPESO,
-        ObesityLevel.OBESIDADE,
-        ObesityLevel.OBESIDADE_GRAVE,
+const formatBodyFatLevelMessage = (imc?: number) => {
+    const bodyFatLevelFormats: BodyFatLevel[] = [
+        BodyFatLevel.MAGREZA,
+        BodyFatLevel.NORMAL,
+        BodyFatLevel.SOBREPESO,
+        BodyFatLevel.OBESIDADE,
+        BodyFatLevel.OBESIDADE_GRAVE,
     ];
 
     if (!imc) return;
 
-    const obesityLevelIndex = ternary([
+    const bodyFatLevelIndex = ternary([
         [imc < 18.5, 0],
         [imc < 25, 1],
         [imc < 30, 2],
-        [imc < 40, 3],
-        [imc > 40, 4],
+        [imc < 35, 3],
+        [imc < 40, 4],
+        [imc > 40, 5],
     ]);
 
-    return obesityLevelFormats[obesityLevelIndex ?? 0] ?? null;
+    return bodyFatLevelFormats[bodyFatLevelIndex ?? 0] ?? null;
 };
 
 export const imcCalculator = ({ height, weight }: ImcCalculatorData) => {
@@ -39,6 +40,6 @@ export const imcCalculator = ({ height, weight }: ImcCalculatorData) => {
 
     return {
         imc,
-        obesityLevel: formatObesityLevelMessage(imc),
+        bodyFatLevel: formatBodyFatLevelMessage(imc),
     };
 };

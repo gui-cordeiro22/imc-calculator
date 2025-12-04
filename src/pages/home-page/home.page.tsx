@@ -26,8 +26,6 @@ export const HomePage: FunctionComponent = () => {
 
     const { width } = useWindowDimensions();
 
-    console.log(imcValue);
-
     return (
         <Home
             calculatorSectionCompositions={
@@ -36,7 +34,7 @@ export const HomePage: FunctionComponent = () => {
                     weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale color={theme.colors.gray[500]} />} />}
                     actionButtonElement={
                         <Button
-                            label="Calcular"
+                            label="Calcular IMC"
                             variant="cta"
                             isCommingSoon={false}
                             size="large"
@@ -51,7 +49,7 @@ export const HomePage: FunctionComponent = () => {
                 <ConditionallyRender
                     shouldRender={!!imcValue?.imc}
                     content={
-                        <ResultsSection title="Confira abaixo o seu resultado:" imcValue={imcValue?.imc} bodyFatLevel={imcValue?.obesityLevel} />
+                        <ResultsSection title="Confira abaixo o seu resultado:" imcValue={imcValue?.imc} bodyFatLevel={imcValue?.bodyFatLevel} />
                     }
                 />
             }
