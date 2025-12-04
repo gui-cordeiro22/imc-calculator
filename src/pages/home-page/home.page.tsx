@@ -1,5 +1,6 @@
 // Dependencies
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
+import { useForm } from "react-hook-form";
 
 // Components
 import { Home } from "../../components/pages/home-page";
@@ -8,6 +9,9 @@ import { Input } from "../../components/elements/input";
 import { Button } from "../../components/elements/button";
 import { ResultsSection } from "../../components/sections/results";
 import { ConditionallyRender } from "../../components/utilities/conditionally-render";
+
+// Types
+import { BodyFatLevel } from "./home.types";
 
 // Assets
 import { Ruler, Scale, Calculator } from "lucide-react";
@@ -22,18 +26,39 @@ import { imcCalculator } from "./home.helpers";
 import { useWindowDimensions } from "../../hooks/window-dimensions/window-dimensions";
 
 export const HomePage: FunctionComponent = () => {
-    const imcValue = imcCalculator({ height: "", weight: "" });
+    const [imcResult, setImcResult] = useState<{ imc: number; bodyFatLevel: BodyFatLevel | undefined } | undefined>(undefined);
+    const { register, handleSubmit } = useForm();
 
     const { width } = useWindowDimensions();
 
+    const handleImcCalculate = (data: any) => {
+        const response = imcCalculator({ height: data.height, weight: data.weight });
+
+        setImcResult(response);
+    };
     return (
         <Home
             calculatorSectionCompositions={
                 <CalculatorSection
-                    heigthInputElement={<Input placeholder="Altura em metros" iconElement={<Ruler color={theme.colors.gray[500]} />} />}
-                    weigthInputElement={<Input placeholder="Peso em quilos" iconElement={<Scale color={theme.colors.gray[500]} />} />}
+                    heigthInputElement={
+                        <Input
+                            {...register("height")}
+                            type="text"
+                            placeholder="Altura em metros"
+                            iconElement={<Ruler color={theme.colors.gray[500]} />}
+                        />
+                    }
+                    weigthInputElement={
+                        <Input
+                            {...register("weight")}
+                            type="text"
+                            placeholder="Peso em quilos"
+                            iconElement={<Scale color={theme.colors.gray[500]} />}
+                        />
+                    }
                     actionButtonElement={
                         <Button
+                            type="submit"
                             label="Calcular IMC"
                             variant="cta"
                             isCommingSoon={false}
@@ -41,15 +66,16 @@ export const HomePage: FunctionComponent = () => {
                             isFullyAdaptative={width < 768}
                             borderType="squared"
                             rightIconElement={<Calculator />}
+                            onClick={handleSubmit(handleImcCalculate)}
                         />
                     }
                 />
             }
             resultsSectionCompositions={
                 <ConditionallyRender
-                    shouldRender={!!imcValue?.imc}
+                    shouldRender={!!imcResult?.imc}
                     content={
-                        <ResultsSection title="Confira abaixo o seu resultado:" imcValue={imcValue?.imc} bodyFatLevel={imcValue?.bodyFatLevel} />
+                        <ResultsSection title="Confira abaixo o seu resultado:" imcValue={imcResult?.imc} bodyFatLevel={imcResult?.bodyFatLevel} />
                     }
                 />
             }

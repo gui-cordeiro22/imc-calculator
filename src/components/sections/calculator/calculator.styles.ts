@@ -7,7 +7,7 @@ import { pageGutter } from "../../../styles/gutter";
 // Utils
 import { theme } from "../../../config/theme";
 
-export const Container = styled.div`
+export const Container = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
