@@ -1,6 +1,3 @@
-// Dependencies
-import { useState } from "react";
-
 // Types
 import { ImcCalculatorData, ObesityLevel } from "./home.types";
 
@@ -29,29 +26,19 @@ const formatObesityLevelMessage = (imc?: number) => {
     return obesityLevelFormats[obesityLevelIndex ?? 0] ?? null;
 };
 
-export const imcCalculator = ({ heigth, weigth }: ImcCalculatorData) => {
-    const [imcValue, setImcValue] = useState(undefined);
+export const imcCalculator = ({ height, weight }: ImcCalculatorData) => {
+    if (!height || !weight) return undefined;
 
-    if (!heigth && !weigth) {
-        return setImcValue(undefined);
-    } else {
-        const formatFloatNumber = (value: string) => {
-            return Number(value.replace(",", "."));
-        };
+    const formatFloatNumber = (value: string) => Number(value.replace(",", "."));
 
-        const formattedHeigth = formatFloatNumber(heigth);
+    const formattedHeight = formatFloatNumber(height);
 
-        const formattedWeigth = formatFloatNumber(weigth);
+    const formattedWeight = formatFloatNumber(weight);
 
-        const imc = formattedWeigth / (formattedHeigth * formattedHeigth);
-
-        const formattedImc = Number(imc.toFixed(2));
-
-        //setImcValue(formattedImc)
-    }
+    const imc = Number((formattedWeight / (formattedHeight * formattedHeight)).toFixed(2));
 
     return {
-        imc: imcValue,
-        obesityLevel: formatObesityLevelMessage(imcValue),
+        imc,
+        obesityLevel: formatObesityLevelMessage(imc),
     };
 };

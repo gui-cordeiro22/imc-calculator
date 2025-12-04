@@ -1,7 +1,7 @@
 export type ResultsSectionData = {
     title: string;
     description?: string;
-    imcValue?: string;
+    imcValue?: number;
     bodyFatLevel?: string;
 };
 

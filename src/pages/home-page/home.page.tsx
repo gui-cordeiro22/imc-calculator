@@ -7,6 +7,7 @@ import { CalculatorSection } from "../../components/sections/calculator";
 import { Input } from "../../components/elements/input";
 import { Button } from "../../components/elements/button";
 import { ResultsSection } from "../../components/sections/results";
+import { ConditionallyRender } from "../../components/utilities/conditionally-render";
 
 // Assets
 import { Ruler, Scale, Calculator } from "lucide-react";
@@ -19,10 +20,9 @@ import { imcCalculator } from "./home.helpers";
 
 // Hooks
 import { useWindowDimensions } from "../../hooks/window-dimensions/window-dimensions";
-import { ConditionallyRender } from "../../components/utilities/conditionally-render";
 
 export const HomePage: FunctionComponent = () => {
-    const imcValue = imcCalculator({ heigth: "1,80", weigth: "100" });
+    const imcValue = imcCalculator({ height: "", weight: "" });
 
     const { width } = useWindowDimensions();
 

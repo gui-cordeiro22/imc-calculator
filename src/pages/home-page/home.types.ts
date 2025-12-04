@@ -5,4 +5,4 @@ export enum ObesityLevel {
     OBESIDADE = "Obesidade",
     OBESIDADE_GRAVE = "Obesidade grave",
 }
-export type ImcCalculatorData = { heigth: string; weigth: string };
+export type ImcCalculatorData = { height: string; weight: string };
